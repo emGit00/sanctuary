@@ -10,7 +10,7 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php sanctuary_posted_on(); ?>
+			<?php //sanctuary_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -55,7 +55,7 @@
 		<?php endif; // End if 'post' == get_post_type() ?>
 
 		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'sanctuary' ), __( '1 Comment', 'sanctuary' ), __( '% Comments', 'sanctuary' ) ); ?></span>
+		<span class="comments-link"><?php //comments_popup_link( __( 'Leave a comment', 'sanctuary' ), __( '1 Comment', 'sanctuary' ), __( '% Comments', 'sanctuary' ) ); ?></span>
 		<?php endif; ?>
 
 		<?php edit_post_link( __( 'Edit', 'sanctuary' ), '<span class="edit-link">', '</span>' ); ?>
