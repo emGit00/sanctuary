@@ -13,7 +13,7 @@
 	<footer id="colophon" class="site-footer nav-background" role="contentinfo">
         <div class="content-wrapper">
             <ul id="social-media">
-                <li><a href="#"></a><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/tumblr_36x36.png" alt="Tumblr" /></a></li>
+                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/tumblr_36x36.png" alt="Tumblr" /></a></li>
                 <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/twitter_36x36.png" alt="Twitter" /></a></li>
                 <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/pinterest_36x36.png" alt="Pinterest" /></a></li>
                 <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/facebook_36x36.png" alt="Facebook" /></a></li>
