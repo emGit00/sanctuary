@@ -20,14 +20,13 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
+		<div class="site-branding content-wrapper">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+			<!--<h2 class="site-description text_shadow"><?php //bloginfo( 'description' ); ?></h2> -->
+            <h2><span class="uppercase">Eco-Retreat</span> for <span class="uppercase">Professional Artists</span></h2>
 		</div>
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
+		<nav id="site-navigation" class="main-navigation nav-background" role="navigation">
 			<h1 class="menu-toggle"><?php _e( 'Menu', 'sanctuary' ); ?></h1>
 			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'sanctuary' ); ?></a>
 
