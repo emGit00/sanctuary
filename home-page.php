@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home page
+ * Template Name: Home
  */
 
 get_header(); ?>
@@ -14,39 +14,43 @@ get_header(); ?>
 
         <?php endwhile; // end of the loop. ?>
 
-          <?php
-         //function displays all images using its ID to grab the source url and alt information
-         function get_image_altTag($acf_image = 'photo_image') {
+        <?php
 
-                $attachment_id = get_field($acf_image);
-                $size = "full"; // (thumbnail, medium, large, full or custom size)
+        //function displays all images using its ID to grab the source url and alt information
+        function get_image_altTag($acf_image) {
 
-                $image = wp_get_attachment_image_src( $attachment_id, $size );
-                // url = $image[0];
-                // width = $image[1];
-                // height = $image[2];
+            $attachment_id = get_sub_field($acf_image);
 
-                $attachment = get_post( get_field($acf_image) );
-                $alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
+            $size = "full"; // (thumbnail, medium, large, full or custom size)
 
-                echo "<img class='hp-image' src='" . $image[0] . "' alt='" .  $alt . "' />";
+            $image = wp_get_attachment_image_src( $attachment_id, $size );
+            // url = $image[0];
+            // width = $image[1];
+            // height = $image[2];
+
+            $attachment = get_post( get_sub_field($acf_image) );
+            $alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
+
+            echo "<img class='hp-image' src='" . $image[0] . "' alt='" .  $alt . "' />";
         }
 
-        for( $i = 1; $i <= 5; $i++ ){
-            $scrolling_photo = 'scrolling_photo'.$i;
-            $photo_caption = 'photo_caption' . $i;
-            $photo_subcaption = 'photo_subcaption' . $i;
+        if( get_field('home_textual_photo_sections') ): ?>
+        <?php while( has_sub_field('home_textual_photo_sections') ):
 
-            echo "<div class='scroll-section parallax' data-velocity='.8' id='" . $scrolling_photo . "' />";
-            get_image_altTag($scrolling_photo);
+                // gets image's id number
+                $image_id = get_sub_field('home_image');
 
-            echo "<section id ='captions" . $i . "' class='content-wrapper'>";
-
-            echo "<h3 class='photo-caption'>" . get_field($photo_caption) . "</h3>";
-            echo "<h3 class='photo-subcaption'>" . get_field($photo_subcaption) . "</h3></section></div>";
-         }
-
+            echo "<div data-type='background' data-speed='10' class='scroll-section pages' id='imgID_" . $image_id . "'>";
+            get_image_altTag('home_image'); //runs function and gets image's src and alt info
         ?>
+                    <section class='headlines' >
+                        <h3 class='headline content-wrapper'><?php the_sub_field('home_headline'); ?></h3>
+                        <h3 class='subheadline content-wrapper'><?php the_sub_field('home_subheadline'); ?></h3>
+                    </section>
+            </div>
+
+        <?php endwhile; ?>
+        <?php endif; ?>
 
     </main><!-- #main -->
 

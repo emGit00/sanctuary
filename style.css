@@ -573,21 +573,22 @@ a:active {
     width: 100%;
     margin-bottom: 0;
     padding-bottom: 0;
+    z-index: 9999;
 }
 h1.site-title {
     font: 700 4.96em/.8 'Arvo', serif;
     text-shadow: 0 0 50px #030303;
-    margin-top: 20px;
+    margin-top: .26em;
 }
 h2 {
     font: 300 1.805em/1 'Open Sans Condensed' , sans-serif;
 }
-h3.photo-caption {
+h3.headline {
     font-weight: 700;
     font-size: 1.9em;
     text-transform: uppercase;
 }
-h3.photo-subcaption {
+h3.subheadline {
     font: 300 3em/.3  'Open Sans Condensed' , sans-serif;
 }
 .uppercase {
@@ -604,123 +605,103 @@ h3.photo-subcaption {
     width: 50%;
 }
 #menu-main-nav {
+    display: block;
     float: right;
     width: 50%;
     font: 400 .75em arvo, serif;
 }
 .nav-background {
     background-color: rgba(0,0,0,.64);
-    height: 97px;
+    height: 6em;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 nav.nav-background {
-    margin-top: -32px;
+    margin-top: -2em;
 }
 .bold-text {
     font-weight: 700;
 }
-.hp-image {
-    min-width: 100%;
-    min-height: 100%;
-}
+
 .scroll-section {
-    margin-bottom: -66px;
-}
-#scrolling_photo1 {
     position: relative;
-    top:       0;
-    min-width: 100%;
+    min-height: 1200px;
+    height:     1200px;
+    width:      100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+.hp-image {
+    position: relative;
+    width: 100%;
     height: 100%;
-    z-index: -999;
-    overflow: scroll;
 }
-#scrolling_photo1 > section {
+
+.scroll-section > section {
+    margin: 0 auto;
+    height: 100px;
+    width: 100%;
+}
+.headlines > h3 {
     position: relative;
-    top: -400px;
-    padding-left: 460px;
-    z-index: 0;
 }
-#captions1 .photo-subcaption {
+
+.scroll-section:nth-child(1) > section {
+    position: absolute;
+    top:      45%;
+}
+.scroll-section:nth-child(1) h3 {
+    padding-left: 460px;
+}
+.headlines:nth-child(1) > .subheadline {
     text-indent: 2.25em;
 }
 
-#scrolling_photo2 {
-    position: relative;
-    top:       0;
-    min-width: 100%;
-    height: 100%;
-    z-index: -999;
-    overflow: scroll;
+.scroll-section:nth-child(2) > section {
+    position: absolute;
+    top:       50%;
 }
-#scrolling_photo2 > section {
-    position: relative;
-    top: -660px;
+.scroll-section:nth-child(2) h3 {
     padding-right: 240px;
-    z-index: 0;
-}
-#captions2 {
     text-align: center;
 }
 
-#scrolling_photo3 {
-    position: relative;
-    top:       0;
-    min-width: 100%;
-    height: 100%;
-    z-index: -999;
-    overflow: scroll;
-}
-#scrolling_photo3 > section {
-    position: relative;
-    top: -380px;
-    padding-left: 320px;
-    z-index: 0;
+.scroll-section:nth-child(3) > section {
+    position: absolute;
+    top: 72%;
     color: #030303;
 }
-#captions3 .photo-subcaption {
+.scroll-section:nth-child(3) h3 {
+    padding-left: 320px;
+    text-shadow: 0 0 50px #444;
+}
+.scroll-section:nth-child(3) .subheadline {
     text-indent: 1em;
 }
 
-#scrolling_photo4 {
-    position: relative;
-    top:       0;
-    min-width: 100%;
-    height: 100%;
-    z-index: -999;
-    overflow: scroll;
+.scroll-section:nth-child(4) > section {
+    position: absolute;
+    top: 70%;
 }
-#scrolling_photo4 > section {
-    position: relative;
-    top: -300px;
-    z-index: 0;
-}
-#captions4 {
+.scroll-section:nth-child(4) {
     text-align: right;
 }
 
-#scrolling_photo5 {
-    position: relative;
-    top:       0;
-    min-width: 100%;
-    height: 100%;
-    z-index: -999;
-    overflow: scroll;
+.scroll-section:nth-child(5) > section {
+    position: absolute;
+    top: 60%;
 }
-#scrolling_photo5 > section {
-    position: relative;
-    top: -440px;
-    z-index: 0;
-}
-#captions5 .photo-caption {
+.scroll-section:nth-child(5) .subheadline {
     text-indent: .3em;
 }
 
 footer {
     position: relative;
-    top:       -97px;
+    margin-top: -6em;
+    height: 6em;
     width: 100%;
-    z-index: 1;
 }
 #social-media {
     margin: 0;
@@ -746,6 +727,13 @@ footer {
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
+h2.cabin_title {
+    font-family: arvo, serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
 .sticky {
 }
 .hentry {
@@ -768,6 +756,91 @@ footer {
     clear: both;
     margin: 0 0 1.5em;
 }
+.cabin-content {
+    position: relative;
+    top:    0;
+}
+
+#cabinBG {
+    max-height: 1000px;
+}
+img#cabin-bg {
+    width: 100%;
+    max-height: 1000px;
+}
+#cabin-details-slider {
+    position: absolute;
+    top:    11.5em;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    color: #000;
+    font: 400 .9em "Open Sans", sans-serif;
+    padding-bottom: 5em;
+}
+#cabin-details-slider ul {
+    margin-left: 0;
+}
+#cabin-details-slider ul li {
+    list-style: none;
+}
+
+#cabin_images,
+#cabin-details {
+    float: left;
+}
+
+#cabin_images {
+    width: 65%;
+    margin-top: 1.5em;
+}
+#cabin-details {
+    width:  35%;
+    margin-top: 2.5em;
+}
+
+ol.flex-control-nav,
+ul.flex-direction-nav {
+    display: none;
+}
+
+.thumbnails {
+    position: relative;
+    top: 400px;
+}
+.thumbnails li {
+    float: left;
+    padding-top:   2em;
+    padding-right: 2em;
+}
+#cabin-details > h3,
+.meal_cost {
+    font-weight: bold;
+}
+
+#cabin-details p {
+    padding-top: 1.5em;
+}
+
+.green_type {
+    color: #4e9205;
+}
+
+#cabin-details form > input {
+    background-color: #56792f;
+    color:             #fff;
+    text-transform:    lowercase;
+    font:               inherit;
+    padding:           1em;
+    border:            none;
+    text-shadow:       none;
+    box-shadow:        none;
+}
+
+#cabin-details form > input:hover {
+    background-color: #212f12;
+}
+
 
 /*--------------------------------------------------------------
 10.2 Asides
