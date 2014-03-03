@@ -94,7 +94,7 @@ function sanctuary_scripts() {
     //add google fonts for sanctuary theme
     wp_register_style('Arvo','http://fonts.googleapis.com/css?family=Arvo:400,700');
     wp_enqueue_style( 'Arvo' );
-    wp_register_style('Open Sans','http://fonts.googleapis.com/css?family=Open+Sans:400,70');
+    wp_register_style('Open Sans','http://fonts.googleapis.com/css?family=Open+Sans:400,700');
     wp_enqueue_style( 'Open Sans' );
     wp_register_style('Open Sans Condensed','http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic');
     wp_enqueue_style( 'Open Sans Condensed' );
