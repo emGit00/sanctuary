@@ -13,10 +13,10 @@
 	<footer id="colophon" class="site-footer nav-background" role="contentinfo">
         <div class="content-wrapper">
             <ul id="social-media">
-                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/tumblr_36x36.png" alt="Tumblr" /></a></li>
-                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/twitter_36x36.png" alt="Twitter" /></a></li>
-                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/pinterest_36x36.png" alt="Pinterest" /></a></li>
-                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/02/facebook_36x36.png" alt="Facebook" /></a></li>
+                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/03/tumblr_44x44.png" alt="Tumblr" /></a></li>
+                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/03/twitter_44x36.png" alt="Twitter" /></a></li>
+                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/03/pinterest_44x44.png" alt="Pinterest" /></a></li>
+                <li><a href="#"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2014/03/facebook_44x44.png" alt="Facebook" /></a></li>
             </ul>
         </div>
 		<div class="site-info content-wrapper">
