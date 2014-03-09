@@ -27,10 +27,9 @@
             <h2><span class="uppercase">Eco-Retreat</span> for <span class="uppercase">Professional Artists</span></h2>
 		</div>
 		<nav id="site-navigation" class="main-navigation nav-background" role="navigation">
-			<h1 class="menu-toggle"><?php _e( 'Menu', 'sanctuary' ); ?></h1>
+			<h1 class="menu-toggle"><?php _e( 'Menu&nbsp;&#9776;', 'sanctuary' ); ?></h1>
 			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'sanctuary' ); ?></a>
-
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			    <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
