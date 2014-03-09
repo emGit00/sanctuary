@@ -38,7 +38,7 @@ function sanctuary_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -56,9 +56,25 @@ function sanctuary_setup() {
 
 	// Enable support for HTML5 markup.
 	add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form', ) );
+
+    //creates a custom thumbnail size for cabin page thumbnails
+    function custom_image_sizes() {
+        add_image_size( 'cabin_thumb', 50, 50, true ); //50 pixels wide and tall, with a hard crop
+    }
+
+    //adds custom thumbnail to media settings section
+    add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+
+    function my_custom_sizes( $sizes ) {
+        return array_merge($sizes, array(
+            'cabin_thumb' => 'Cabin Thumb',
+        ) );
+    }
 }
 endif; // sanctuary_setup
 add_action( 'after_setup_theme', 'sanctuary_setup' );
+add_action( 'after_setup_theme', 'custom_image_sizes' );
+
 
 /**
  * Register widgetized area and update sidebar with default widgets.
@@ -85,11 +101,13 @@ function sanctuary_scripts() {
 
 	wp_enqueue_script( 'sanctuary-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+    wp_enqueue_script('jquery');
+
    //bold artist terms in nav menu and parallax scrolling
-    wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array(jquery), '20140222', true );
+    wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array('jquery'), '20140222', true );
 
     //Flex Slider image gallery
-    wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/flexslider.js', array(jquery), '', true );
+    wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/flexslider.js', array('jquery'), '', true );
 
     //add google fonts for sanctuary theme
     wp_register_style('Arvo','http://fonts.googleapis.com/css?family=Arvo:400,700');
@@ -132,6 +150,9 @@ require get_template_directory() . '/inc/jetpack.php';
 
 add_action( 'init', 'create_my_post_types' );
 
+/**
+ * Create custom post for Cabin pages
+ */
 function create_my_post_types() {
     register_post_type( 'cabins',
         array(
@@ -163,3 +184,6 @@ function create_my_post_types() {
         )
     );
 }
+
+
+?>
