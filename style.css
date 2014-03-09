@@ -42,6 +42,7 @@ and Blueprint http://www.blueprintcss.org/
 	10.3 - Comments
 11.0 - Infinite scroll
 12.0 - Media
+    12.1 - Media Queries
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -200,6 +201,7 @@ small {
 big {
     font-size: 125%;
 }
+
 
 /*--------------------------------------------------------------
 3.0 Elements
@@ -380,15 +382,17 @@ a:active {
     display: block;
     text-decoration: none;
     text-transform: uppercase;
+}
+.main-nav-link > a {
     padding-right: 1.5em;
 }
+
 .main-navigation ul ul {
     background-color: #e5e5e5;
     display: none;
-    float: left;
-    left: 0;
+    left: -5em;
     position: absolute;
-    top: 65px;
+    top: 5.25em;
     z-index: 99999;
 }
 .main-navigation ul ul ul {
@@ -402,7 +406,9 @@ a:active {
 .main-navigation ul ul li {
     border-bottom: 1px solid #898989;
     height:         3em;
-    padding:  1em;
+    padding:  1em 0;
+    float: left;
+    text-align: center;
 }
 .main-navigation ul ul li:hover {
     background-color: #898989;
@@ -419,36 +425,45 @@ a:active {
 }
 .main-navigation ul.nav-menu > li:hover:after {
     content: "";
-    border-color: #e5e5e5 transparent;
-    border-style: solid;
-    border-width: 0 1.5em 2em 1.5em;
+    border-left: 2em solid transparent;
+    border-right: 2em solid transparent;
+    border-bottom: 2em solid #e5e5e5;
     display: block;
     height: 0;
     width: 0;
     bottom: -2.2em;
-    right: -1em;
+    right: -.5em;
     position: relative;
     z-index: 9999;
+    line-height: 0;
+}
+#menu-main-nav {
+    display: block;
+    float: right;
+    width: 50%;
+    font: 400 .75em arvo, serif;
+}
+.nav-background {
+    background-color: rgba(0,0,0,.64);
+    height: 6em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+nav.nav-background {
+    margin-top: -2em;
 }
 
 .main-navigation .current_page_item a,
 .main-navigation .current-menu-item a {
 }
+
 /* Small menu */
 .menu-toggle {
     cursor: pointer;
     display: none;
 }
-@media screen and (max-width: 600px) {
-    .menu-toggle,
-    .main-navigation.toggled .nav-menu {
-        display: block;
-    }
+@media screen and (max-width: 600px) { }
 
-    .main-navigation ul {
-        display: none;
-    }
-}
 .site-main .comment-navigation,
 .site-main .paging-navigation,
 .site-main .post-navigation {
@@ -577,7 +592,7 @@ a:active {
 }
 h1.site-title {
     font: 700 4.96em/.8 'Arvo', serif;
-    text-shadow: 0 0 50px #030303;
+    text-shadow: 0 0 .64em #030303;
     margin-top: .26em;
 }
 h2 {
@@ -595,38 +610,26 @@ h3.subheadline {
     text-transform: uppercase;
 }
 .content-wrapper, .menu-main-nav-container {
-    width: 920px;
+    max-width: 960px;
+    width:     960px;
+    min-width: 300px;
     margin: 0 auto;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0 1.45%;
 }
 .site-branding h2 {
     float: left;
     width: 50%;
 }
-#menu-main-nav {
-    display: block;
-    float: right;
-    width: 50%;
-    font: 400 .75em arvo, serif;
-}
-.nav-background {
-    background-color: rgba(0,0,0,.64);
-    height: 6em;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-nav.nav-background {
-    margin-top: -2em;
-}
+
 .bold-text {
     font-weight: 700;
 }
 
 .scroll-section {
     position: relative;
-    min-height: 1200px;
-    height:     1200px;
+    max-height: 1200px;
+    height:     75em;
+    min-height: 480px;
     width:      100%;
     max-width: 1920px;
     margin: 0 auto;
@@ -640,23 +643,25 @@ nav.nav-background {
 }
 
 .scroll-section > section {
-    margin: 0 auto;
     height: 100px;
-    width: 100%;
+    left: 0;
+    right: 0;
 }
 .headlines > h3 {
     position: relative;
+    padding: 0;
 }
 
 .scroll-section:nth-child(1) > section {
     position: absolute;
-    top:      45%;
+    top:      60%;
 }
 .scroll-section:nth-child(1) h3 {
-    padding-left: 460px;
+    padding-left: 38%;
 }
-.headlines:nth-child(1) > .subheadline {
-    text-indent: 2.25em;
+.scroll-section:nth-child(1) .subheadline {
+    text-indent: 7.5%;
+    top: -.05em;
 }
 
 .scroll-section:nth-child(2) > section {
@@ -664,7 +669,7 @@ nav.nav-background {
     top:       50%;
 }
 .scroll-section:nth-child(2) h3 {
-    padding-right: 240px;
+    padding-right: 10%;
     text-align: center;
 }
 
@@ -674,18 +679,19 @@ nav.nav-background {
     color: #030303;
 }
 .scroll-section:nth-child(3) h3 {
-    padding-left: 320px;
-    text-shadow: 0 0 50px #444;
+    padding-left: 22%;
+    text-shadow: 0 0 1.05em #444;
 }
 .scroll-section:nth-child(3) .subheadline {
-    text-indent: 1em;
+    text-indent: 4.5%;
 }
 
 .scroll-section:nth-child(4) > section {
     position: absolute;
     top: 70%;
 }
-.scroll-section:nth-child(4) {
+.scroll-section:nth-child(4) h3 {
+    padding-right: 3.5%;
     text-align: right;
 }
 
@@ -693,8 +699,11 @@ nav.nav-background {
     position: absolute;
     top: 60%;
 }
-.scroll-section:nth-child(5) .subheadline {
-    text-indent: .3em;
+.scroll-section:nth-child(5) h3 {
+    padding-left: 1.45%;
+}
+.scroll-section:nth-child(5) .headline {
+    text-indent: .75%;
 }
 
 footer {
@@ -712,17 +721,22 @@ footer {
     display: block;
     padding-top: 1em;
     padding-right: 1em;
-    min-height: 36px;
-    min-width: 36px;
+}
+#social-media img {
+    max-width: 2.75em;
+    max-height: 2.75em;
 }
 .site-info p {
     text-align: right;
     margin-bottom: 0;
     vertical-align: top;
     padding-top: 4em;
+    padding-right: 1.45%;
     font-family: "Open Sans" , sans-serif;
     font-size: .6875em;
 }
+
+
 
 /*--------------------------------------------------------------
 10.1 Posts and pages
@@ -770,13 +784,11 @@ img#cabin-bg {
 }
 #cabin-details-slider {
     position: absolute;
-    top:    11.5em;
+    top:    10.5em;
     left: 0;
     right: 0;
     background-color: #fff;
     color: #000;
-    font: 400 .9em "Open Sans", sans-serif;
-    padding-bottom: 5em;
 }
 #cabin-details-slider ul {
     margin-left: 0;
@@ -788,32 +800,35 @@ img#cabin-bg {
 #cabin_images,
 #cabin-details {
     float: left;
+    padding-top: 3em;
 }
 
 #cabin_images {
-    width: 65%;
-    margin-top: 1.5em;
+    width: 60%;
+    padding-right: 2%;
 }
 #cabin-details {
-    width:  35%;
-    margin-top: 2.5em;
+    width:  38%;
+    font: 400 .9em "Open Sans", sans-serif;
 }
 
 ol.flex-control-nav,
 ul.flex-direction-nav {
-    display: none;
+    list-style-type: none;
+    margin-left: 0;
 }
 
-.thumbnails {
-    position: relative;
-    top: 400px;
-}
-.thumbnails li {
+.flex-control-thumbs li {
     float: left;
-    padding-top:   2em;
-    padding-right: 2em;
+    padding-top:   1em;
+    padding-right: 1em;
 }
-#cabin-details > h3,
+.flex-control-thumbs li:hover {
+    cursor: pointer;
+    opacity: .6;
+}
+
+#cabin-details h3,
 .meal_cost {
     font-weight: bold;
 }
@@ -835,6 +850,7 @@ ul.flex-direction-nav {
     border:            none;
     text-shadow:       none;
     box-shadow:        none;
+    margin-bottom:      3em;
 }
 
 #cabin-details form > input:hover {
@@ -921,4 +937,148 @@ embed,
 iframe,
 object {
     max-width: 100%;
+}
+
+
+/*--------------------------------------------------------------
+12.1 Media Queries
+--------------------------------------------------------------*/
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) { }
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 768px) {
+
+    body,
+    button,
+    input,
+    select,
+    textarea {
+        font-size: 1.5em;
+    }
+    .content-wrapper, .menu-main-nav-container {
+        max-width:     768px;
+    }
+    #menu-main-nav {
+        display: none;
+    }
+    .menu-toggle,
+    .main-navigation.toggled .nav-menu {
+        display: block;
+    }
+    h1.site-title, h1.menu-toggle {
+        width: 50%;
+    }
+    .menu-toggle {
+        position: relative;
+        top: -2em;
+        float: right;
+        padding-right: 1.125em;
+        font-size: 2em;
+        text-align: right;
+    }
+    ul#menu-main-nav.open {
+        position: relative;
+        top: -1em;
+        float: right;
+        display: block;
+        height:  auto;
+        width:  100%;
+        background-color: #e5e5e5;
+    }
+    ul#menu-main-nav.open li {
+        float: none;
+        border-bottom: 1px solid #898989;
+    }
+    ul#menu-main-nav.open li:last-child {
+        border-bottom: none;
+    }
+    ul#menu-main-nav.open li a {
+        display: block;
+        padding: 1em 0 1em 1em;
+        color: #020202;
+    }
+    ul#menu-main-nav.open li a:hover {
+        background-color: #898989;
+    }
+    nav.main-navigation ul li:hover > ul {
+        display: block;
+        position: relative;
+        top: 100%;
+        width: 100%;
+    }
+    nav.main-navigation ul.nav-menu > li:hover:after {
+        display: none;
+    }
+    nav.main-navigation ul ul {
+        left: 0;
+        top: inherit;
+    }
+    nav.main-navigation ul ul li {
+        height: inherit;
+        padding: inherit;
+        margin-left: 2em;
+        margin-right: 2em;
+    }
+    nav.main-navigation ul ul a {
+        text-align: left;
+    }
+    #cabinBG,
+    img#cabin-bg {
+        max-height: 1260px;
+        height: 1260px;
+    }
+    #cabin-details-slider {
+        padding-bottom: 260px;
+    }
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+/* Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 480px) {
+    body,
+    button,
+    input,
+    select,
+    textarea {
+        font-size: .7em;
+    }
+    .content-wrapper, .menu-main-nav-container {
+        max-width:     480px;
+    }
+    .site-info p {
+        font-size: 1em;
+        padding-top: 2em;
+    }
+    #cabin-bg {
+        min-height: 900px;
+    }
+    #cabin_images,
+    #cabin-details {
+        width: 100%;
+    }
+}
+
+/* Mobile Portrait Size (devices and browsers) */
+@media only screen and (max-width: 320px) {
+    body,
+    button,
+    input,
+    select,
+    textarea {
+        font-size: .6em;
+    }
+    .content-wrapper, .menu-main-nav-container {
+        max-width:     320px;
+    }
+    .site-info p {
+        font-size: 1em;
+        padding-top: 2em;
+    }
 }
