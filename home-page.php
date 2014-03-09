@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home
+ * Template Name: Home Page
  */
 
 get_header(); ?>
@@ -32,10 +32,10 @@ get_header(); ?>
             $alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
 
             echo "<img class='hp-image' src='" . $image[0] . "' alt='" .  $alt . "' />";
-        }
+        };
 
-        if( get_field('home_textual_photo_sections') ): ?>
-        <?php while( has_sub_field('home_textual_photo_sections') ):
+        if( get_field('home_textual_photo_sections') ):
+        while( has_sub_field('home_textual_photo_sections') ):
 
                 // gets image's id number
                 $image_id = get_sub_field('home_image');

@@ -7,18 +7,7 @@
 get_header(); ?>
 
     <div id="primary" class="content-area cabin-content">
-
-
         <main id="main" class="site-main" role="main">
-
-            <?php while ( have_posts() ) : the_post(); ?>
-
-                <?php //get_template_part( 'content', 'single' ); ?>
-
-                <?php //sanctuary_post_nav(); ?>
-
-            <?php endwhile; // end of the loop. ?>
-
             <!-- cabin background  -->
             <?php
 
@@ -30,40 +19,27 @@ get_header(); ?>
 
             <div id="cabin-details-slider">
                 <section class="content-wrapper">
-                <!-- cabin slider images -->
+                <!-- cabin slider and thumbnail images -->
                 <?php
 
                 $images = get_field('cabin_images');
-                /*
-                *  The following code creates the thumbnail navigation
-                */
+
                 if( $images ):
                 ?>
-                    <div  id="cabin_images" class=”flex-container”>
-                        <div id="cabin-carousel" class="flexslider">
-                           <ul class="slides">
-                            <?php foreach( $images as $image ): ?>
-                               <li><img src="<?php echo $image ['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" /> </li>
-                            <?php endforeach; ?>
-                            </ul>
-                        </div>
-                        <div class="thumbnails">
-                            <ul > <!--class="slides"-->
-                                <?php foreach( $images as $image ): ?>
-                                    <li>
-                                        <a href="<?php echo $image['sizes']['large']; ?>" target="" >
-                                        <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" /></a>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php endif;
-
-                    ?>
+                <div  id="cabin_images" class=”flex-container”>
+                    <div id="cabin-carousel" class="flexslider">
+                       <ul class="slides">
+                        <?php foreach( $images as $image ): ?>
+                           <li data-thumb="<?php echo $image['sizes']['cabin_thumb']; ?>"><img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" title="<?php echo $image['caption']; ?>" /></li>
+                        <?php endforeach; ?>
+                        </ul>
                     </div>
 
+                <?php endif; ?>
+                </div>
+
                 <!-- cabin details  -->
-                <div id = "cabin-details">
+                <div id="cabin-details">
                         <h2 class="cabin_title"><?php echo get_the_title(); ?></h2>
                         <p><?php the_field('cabin_description'); ?></p>
                         <h3>Art making features:</h3>
@@ -128,8 +104,6 @@ get_header(); ?>
                 </div>
             </section>
         </div>
-
-            <div class="clear"></div>
 
         </main><!-- #main -->
     </div><!-- #primary -->

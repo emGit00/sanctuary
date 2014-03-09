@@ -1,11 +1,6 @@
 var app = {
 
-
-//jQuery(document).ready(function($) {
-
-    artistNavWords: function() {
-
-        var $ = jQuery;
+    artistNavWords: function($) {
 
         //creates an array for specific artist words in menu items
         //note: I can't figure out how to escape/regex replace the apostrophe in Painter's so using Painter for now
@@ -25,7 +20,7 @@ var app = {
 
             });
 
-
+           //handle the word "painter's" separately
            $('.sub-menu a').each( function(){
                 var jThis = $(this);
                 if(jThis.text() == "Hillside Painter’s Cabin"){
@@ -42,12 +37,12 @@ var app = {
         }
     },
 
-    parallaxScrolling: function() {
+    parallaxScrolling: function($) {
         // Create HTML5 elements for IE
         document.createElement("article");
         document.createElement("section");
 
-        var $ = jQuery;
+        //var $ = jQuery;
         var images = $('.hp-image');
 
         //hide existing images to allow for parallax scrolling
@@ -79,21 +74,27 @@ var app = {
         });
     },
 
-    flexslider: function(){
-
-        var $ = jQuery;
+    flexslider: function($){
 
         $('.flexslider').flexslider({
-            //animation: "slide",
-            controlsContainer: ".flex-container"
+            animation: "slide",
+            controlNav: "thumbnails"
         });
+    },
 
+    responsiveMenu: function($) {
+        $(".menu-toggle").on('click', function() {
+            $("#menu-main-nav").toggleClass("open");
+        });
     }
 
  };
 
+
 jQuery(document).ready(function($) {
-    app.artistNavWords();
-    app.parallaxScrolling();
-    app.flexslider();
+    app.artistNavWords($);
+    app.parallaxScrolling($);
+    app.flexslider($);
+    app.responsiveMenu($);
+
 });
